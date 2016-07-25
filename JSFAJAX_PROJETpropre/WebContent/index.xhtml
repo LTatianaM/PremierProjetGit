@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+	<h:outputStylesheet library="css" name="MonStyle.css" />
+</h:head>
+<h:body>
+
+
+
+	<center>
+		<h1>Liste des Aliments</h1>
+	</center>
+
+	<h:form>
+		<center>
+			<h:messages for="maListe"></h:messages>
+			<h:dataTable var="al" value="#{aliBean.listAliment}"
+				styleClass="demo-table" headerClass="demo-table-header"
+				rowClasses="demo-table-row" id="maListe">
+
+				<h:column>
+					<f:facet name="header">Id</f:facet>			
+ 					#{al.id}   			
+					</h:column>
+				<h:column>
+					<f:facet name="header">Nom</f:facet>			
+ 					#{al.nom}  			
+					</h:column>
+
+				<h:column>
+					<f:facet name="header">Categorie</f:facet>
+					#{al.categorie}
+    											</h:column>
+
+				<h:column>
+					<f:facet name="header">Couleur</f:facet>				
+			#{al.couleur}    			
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandLink value="Modifier"
+						action="#{aliBean.getMonAliment(al.id)}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandLink value="Supprimer"
+						onclick="if (!confirm('Voulez-vous supprimer cet éléments?')) return false"
+						action="#{aliBean.delAliment(al.id)}" />
+
+				</h:column>
+
+			</h:dataTable>
+		</center>
+		<h:commandLink action="ajoutAliment" value="ajouter un aliment"></h:commandLink>
+
+	</h:form>
+
+</h:body>
+</html>

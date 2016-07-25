@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+
+.demo-table{
+	border-collapse: collapse;
+	border-bottom: 1px solid gray;
+	font-family: Tahoma, Verdana, Segoe,sans-serif;
+	border-top:1px solid gray;
+	background: none repeat scroll 0 0 #FFFFFF;
+	text-align: center;
+	
+}
+
+.demo-table-header{
+	border-bottom: 1px solid black;
+	background: none repeat scroll 0 0 #66CCFF;
+	padding: 10px;
+}
+
+.demo-table-row:nth-child(even){
+	border-top: 1px solid red;
+	background: none repeat scroll 0 0 #A9A9A9;
+	text-align: center;
+	
+}
